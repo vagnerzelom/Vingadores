@@ -52,6 +52,11 @@ var Vingador = /*#__PURE__*/function (_Pessoa) {
     value: function lutar() {
       alert("".concat(this.nome, " esta lutando usando ").concat(this.poderes[0]));
     }
+  }, {
+    key: "vingador",
+    value: function vingador() {
+      alert("O ".concat(this.nome, " \xE9 o homem de ferro tem a altura de ").concat(this.altura, " e pesa ").concat(this.peso, " e tem como poder ").concat(this.poderes));
+    }
   }]);
 
   return Vingador;
@@ -61,6 +66,12 @@ var thor = new Vingador('thor', '1.85', '100kg', ['Super força', 'raio'], true,
 
 document.getElementById('lutar').onclick = function () {
   thor.lutar();
+};
+
+var homemDeFerro = new Vingador('Toni', '1,75', '80 kg', 'Armadura de Super tecnologica', true, true);
+
+document.getElementById("homem-de-ferro").onclick = function () {
+  homemDeFerro.vingador();
 };
 
 var OperacoesMatematicas = /*#__PURE__*/function () {
