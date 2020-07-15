@@ -1,47 +1,45 @@
-class Pessoa {
-    constructor(nome, altura, peso){
-        this.nome= nome;
-        this.altura = altura;
-        this.peso = peso;
-    }
-}
+const arr =[1,2,3,4,5,6];
+const cesta = ['banana','maçã','abacate','abacaxi'];
+
+const squareArr = arr.map(function(item,indice,array){
+ return item * item;
+});
+
+//console.log(squareArr);
+
+const fruitPosition = cesta.map(function (item,indice) {
+    return `O ${item} esta na posição ${indice} do array`
+    
+})
+
+//console.log(fruitPosition);
+
+const sun = arr.reduce( function (total,next) {
+
+    return total + next;
+}) // reduce transforma todo a array em unico soma todos os itens do array o total acumula o resultado da soma anterior para ser somado depois na proxima volta do array com proximo numero que o next
+
+//console.log(sun);
+
+const filter = arr.filter(function (item) {
+    return item % 2 === 0;
+})
+
+const filter2 =cesta.filter(function (item) {
+    return item ==='banana'
+})
 
 
-class Vingador extends Pessoa {
-    constructor(nome,altura,peso, poderes, temArmadura, isMembroFundador){
-        super(nome,altura,peso);
-        this.poderes = poderes;
-        this.temArmadura = temArmadura;
-        this.isMembroFundador = isMembroFundador;
-    }
-    lutar (){
-        alert (`${this.nome} esta lutando usando ${this.poderes[0]}`)
-    }
-    vingador (){
-        alert(`O ${this.nome} é o homem de ferro tem a altura de ${this.altura} e pesa ${this.peso} e tem como poder ${this.poderes}`);
-    }
-}
+//console.log(filter);
+//console.log(filter2);
 
-const thor = new Vingador('thor','1.85' ,'100kg',['Super força','raio'],true,true);
+const find = arr.find(function (item) {
+    return item === 4;
+})
 
-document.getElementById('lutar').onclick = function(){
-    thor.lutar();
-}
+const frutas = cesta.find(function(item){
+    return item ==='abacate';
+}) 
 
-const homemDeFerro = new Vingador('Toni', '1,75', '80 kg', 'Armadura de Super tecnologica', true,true);
-
-
-
-document.getElementById("homem-de-ferro").onclick = function (){
-    homemDeFerro.vingador();
-}
-
-class OperacoesMatematicas {
- static soma(a,b){
-     return a+b;
- }
-}
-
-const sun = OperacoesMatematicas.soma (1,3);
-
-alert (sun);
+console.log(find);
+console.log(frutas);

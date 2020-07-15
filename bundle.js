@@ -1,93 +1,33 @@
 "use strict";
 
-function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+var arr = [1, 2, 3, 4, 5, 6];
+var cesta = ['banana', 'maçã', 'abacate', 'abacaxi'];
+var squareArr = arr.map(function (item, indice, array) {
+  return item * item;
+}); //console.log(squareArr);
 
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+var fruitPosition = cesta.map(function (item, indice) {
+  return "O ".concat(item, " esta na posi\xE7\xE3o ").concat(indice, " do array");
+}); //console.log(fruitPosition);
 
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+var sun = arr.reduce(function (total, next) {
+  return total + next;
+}); // reduce transforma todo a array em unico soma todos os itens do array o total acumula o resultado da soma anterior para ser somado depois na proxima volta do array com proximo numero que o next
+//console.log(sun);
 
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+var filter = arr.filter(function (item) {
+  return item % 2 === 0;
+});
+var filter2 = cesta.filter(function (item) {
+  return item === 'banana';
+}); //console.log(filter);
+//console.log(filter2);
 
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
-
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-var Pessoa = function Pessoa(nome, altura, peso) {
-  _classCallCheck(this, Pessoa);
-
-  this.nome = nome;
-  this.altura = altura;
-  this.peso = peso;
-};
-
-var Vingador = /*#__PURE__*/function (_Pessoa) {
-  _inherits(Vingador, _Pessoa);
-
-  var _super = _createSuper(Vingador);
-
-  function Vingador(nome, altura, peso, poderes, temArmadura, isMembroFundador) {
-    var _this;
-
-    _classCallCheck(this, Vingador);
-
-    _this = _super.call(this, nome, altura, peso);
-    _this.poderes = poderes;
-    _this.temArmadura = temArmadura;
-    _this.isMembroFundador = isMembroFundador;
-    return _this;
-  }
-
-  _createClass(Vingador, [{
-    key: "lutar",
-    value: function lutar() {
-      alert("".concat(this.nome, " esta lutando usando ").concat(this.poderes[0]));
-    }
-  }, {
-    key: "vingador",
-    value: function vingador() {
-      alert("O ".concat(this.nome, " \xE9 o homem de ferro tem a altura de ").concat(this.altura, " e pesa ").concat(this.peso, " e tem como poder ").concat(this.poderes));
-    }
-  }]);
-
-  return Vingador;
-}(Pessoa);
-
-var thor = new Vingador('thor', '1.85', '100kg', ['Super força', 'raio'], true, true);
-
-document.getElementById('lutar').onclick = function () {
-  thor.lutar();
-};
-
-var homemDeFerro = new Vingador('Toni', '1,75', '80 kg', 'Armadura de Super tecnologica', true, true);
-
-document.getElementById("homem-de-ferro").onclick = function () {
-  homemDeFerro.vingador();
-};
-
-var OperacoesMatematicas = /*#__PURE__*/function () {
-  function OperacoesMatematicas() {
-    _classCallCheck(this, OperacoesMatematicas);
-  }
-
-  _createClass(OperacoesMatematicas, null, [{
-    key: "soma",
-    value: function soma(a, b) {
-      return a + b;
-    }
-  }]);
-
-  return OperacoesMatematicas;
-}();
-
-var sun = OperacoesMatematicas.soma(1, 3);
-alert(sun);
+var find = arr.find(function (item) {
+  return item === 4;
+});
+var frutas = cesta.find(function (item) {
+  return item === 'abacate';
+});
+console.log(find);
+console.log(frutas);
